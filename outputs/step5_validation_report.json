@@ -1,0 +1,25 @@
+{
+  "weekly_correlations": {
+    "w1_w2": 0.9546,
+    "w2_w3": 0.9662,
+    "w3_w4": 0.9702
+  },
+  "holdout_week4_validation": {
+    "r2_score": 0.9443,
+    "pearson_r": 0.9787,
+    "mae_tickets": 5.66,
+    "mape_pct": 25.38
+  },
+  "sanity_checks": {
+    "morning_to_midday_ratio": 4.54,
+    "evening_to_midday_ratio": 2.78,
+    "weekday_to_weekend_ratio": 1.49,
+    "negative_loads_count": 0,
+    "route_continuity_concave": true
+  },
+  "holiday_anomalies": {
+    "gandhi_jayanti_drop_pct": 58.5,
+    "dussehra_drop_pct": 48.5
+  },
+  "plot_saved": "outputs/plots\\step5_validation_sanity_checks.png"
+}

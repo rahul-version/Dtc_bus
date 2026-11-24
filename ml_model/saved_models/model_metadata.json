@@ -1,0 +1,28 @@
+{
+  "model_name": "HistGradientBoostingRegressor",
+  "train_date": "2026-11-24T16:32:28.957755",
+  "dataset_file": "October-Delhi.csv",
+  "total_tickets_trained": 2559891,
+  "r2_score": 0.8407,
+  "mae": 0.1235,
+  "rmse": 0.1884,
+  "feature_cols": [
+    "hour",
+    "is_weekend",
+    "is_ac",
+    "avg_fare",
+    "is_morning_peak",
+    "is_evening_peak",
+    "is_afternoon_lull",
+    "is_night",
+    "log_volume",
+    "route_freq"
+  ],
+  "pink_pass_multiplier": 1.2,
+  "crowding_levels_distribution": {
+    "SEATS_AVAILABLE": 51696,
+    "STANDING_ROOM": 6437,
+    "PACKED": 4783,
+    "CROWDED": 2889
+  }
+}

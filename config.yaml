@@ -1,0 +1,62 @@
+# Central Configuration for Crowdedness-Aware Delhi Bus Journey Planner
+# All parameters, filepaths, thresholds, and mathematical factors are centralized here.
+
+paths:
+  ticket_csv: "October-Delhi.csv"
+  gtfs_dir: "gtfs"
+  outputs_dir: "outputs"
+  plots_dir: "outputs/plots"
+  manual_overrides_csv: "data/manual_stop_overrides.csv"
+  tidy_table_parquet: "outputs/tidy_segment_crowding.parquet"
+  tidy_table_csv: "outputs/tidy_segment_crowding.csv"
+
+pipeline:
+  random_seed: 42
+  chunk_size: 250000
+  timezone: "Asia/Kolkata"
+
+data_cleaning:
+  drop_negative_or_zero_passengers: true
+  drop_same_start_end: true
+  drop_fare_outliers: false
+  time_bin_minutes: 15
+
+stop_matching:
+  rapidfuzz_threshold: 70.0
+  route_constrained_first: true
+  drop_reverse_order: true
+
+missing_vehicle_strategy:
+  hybrid_mode: true
+  headway_trip_split_minutes: 25.0
+  representativeness_alpha: 0.05
+
+load_estimation:
+  pink_pass_uplift_factor: 1.25 # Accounts for Delhi Govt free female transit passes & unticketed boarding
+  daily_sampling_expansion_factor: 22.0 # Calibration multiplier expanding digital ticket sample to total physical passenger load
+  sensitivity_factors: [1.10, 1.20, 1.25, 1.35, 1.50]
+  capacities:
+    standard_non_ac: 65
+    standard_ac: 60
+    midi_non_ac: 45
+    midi_ac: 40
+  crowding_thresholds:
+    seated: 0.65       # <= 65% occupancy: "Seats Available" (Khali)
+    standing: 1.05     # 65% - 105% occupancy: "Standing Room" (Normal)
+    crowded: 1.05      # > 105% occupancy: "Crowded / Packed" (Bheed)
+  confidence:
+    min_tickets_high: 50
+    min_tickets_med: 15
+    min_days_high: 7
+    min_days_med: 3
+
+validation:
+  holdout_week: 4 # Oct 22 to Oct 28
+  known_holidays:
+    - "2026-10-02" # Gandhi Jayanti
+    - "2026-10-20" # Dussehra / Vijayadashami
+    - "2026-10-29" # Diwali
+
+journey_planner:
+  comfort_crowd_penalty_weight: 20.0 # Time equivalent (in minutes) penalized per unit load factor over 1.0
+  departure_nudge_minutes: 20

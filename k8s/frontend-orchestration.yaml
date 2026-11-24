@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dtc-frontend-deployment
+  namespace: dtc-transit
+  labels:
+    app: dtc-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dtc-frontend
+  template:
+    metadata:
+      labels:
+        app: dtc-frontend
+    spec:
+      containers:
+      - name: dtc-frontend
+        image: dtc-frontend:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dtc-frontend-service
+  namespace: dtc-transit
+spec:
+  type: ClusterIP
+  selector:
+    app: dtc-frontend
+  ports:
+  - port: 80
+    targetPort: 80

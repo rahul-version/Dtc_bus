@@ -1,0 +1,19 @@
+{
+  "cohort_a_known_vehicles": 1159821,
+  "cohort_b_missing_vehicles": 1099007,
+  "overall_scaling_factor": 1.9476,
+  "total_bus_trips_segmented": 770556,
+  "mean_tickets_per_trip": 1.51,
+  "median_tickets_per_trip": 1.0,
+  "p95_tickets_per_trip": 3.0,
+  "mean_trip_duration_mins": 3.29,
+  "ks_statistic_hourly": 0.0174,
+  "ks_p_value": 1.2620355541390568e-13,
+  "wasserstein_distance_hours": 0.0807,
+  "route_correlation_pearson": 0.8971,
+  "route_correlation_spearman": 0.9362,
+  "representativeness_verdict": "REPRESENTATIVE",
+  "method_a_vs_b_correlation": 0.9484,
+  "method_a_vs_b_median_diff_pct": 19.58,
+  "plot_saved": "outputs/plots\\step3_representativeness_comparison.png"
+}

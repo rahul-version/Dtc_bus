@@ -1,0 +1,45 @@
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Python cache & build
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node & Frontend dependencies
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Raw large dataset (>100MB exceeds GitHub hard limit)
+October-Delhi.csv
+*.csv.gz
+
+# Intermediate pipeline parquets & large CSV export
+outputs/cleaned_tickets_step1.parquet
+outputs/matched_tickets_step2.parquet
+outputs/segmented_trips_step3.parquet
+outputs/estimated_segment_load_step4.parquet
+outputs/aggregate_timebins_step3.parquet
+outputs/tidy_segment_crowding.csv
+
+# Keep essential tidy outputs, diagnostics & plots
+!outputs/tidy_segment_crowding.parquet
+!outputs/operator_bottleneck_recommendations.csv
+!outputs/*.json
+!outputs/folium_delhi_crowding_map.html
+!outputs/plots/
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

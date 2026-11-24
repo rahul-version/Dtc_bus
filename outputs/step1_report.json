@@ -1,0 +1,50 @@
+{
+  "total_raw_rows": 2559899,
+  "nan_vehicle_count": 1242167,
+  "nan_vehicle_pct": 48.52406286341766,
+  "cleaned_rows": 2559788,
+  "retention_pct": 99.99566389142697,
+  "audit_filters": [
+    {
+      "filter": "Exact duplicates",
+      "removed": 0,
+      "reason": "Identical ticket logs recorded concurrently"
+    },
+    {
+      "filter": "passenger_count <= 0",
+      "removed": 0,
+      "reason": "Zero or negative passengers"
+    },
+    {
+      "filter": "start_stop == end_stop",
+      "removed": 103,
+      "reason": "Zero-distance trip transaction"
+    },
+    {
+      "filter": "amount <= 0",
+      "removed": 8,
+      "reason": "Zero or negative ticket fare"
+    }
+  ],
+  "date_min": "2026-10-01",
+  "date_max": "2026-10-31",
+  "unique_routes": 2259,
+  "plots_saved": [
+    "outputs/plots\\step1_eda_distributions.png",
+    "outputs/plots\\step1_nan_vehicle_profiles.png"
+  ],
+  "ticket_profile": [
+    {
+      "ticket_type_id": 1,
+      "count": 2559788,
+      "mean_fare": 13.35,
+      "median_fare": 13.5,
+      "min_fare": 4.5,
+      "max_fare": 133.5,
+      "ac_tickets": 2059001,
+      "avg_passengers": 1.08,
+      "share_pct": 100.0,
+      "ac_pct": 80.44
+    }
+  ]
+}

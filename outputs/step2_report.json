@@ -1,0 +1,13 @@
+{
+  "total_tickets_input": 2559788,
+  "total_unique_route_stops": 69634,
+  "exact_matches": 69229,
+  "tier1_route_fuzzy": 360,
+  "tier2_global_fuzzy": 40,
+  "unmatched_stops_count": 5,
+  "reverse_sequence_tickets_dropped": 220839,
+  "aligned_tickets_retained": 2258828,
+  "match_rate_pct": 88.24,
+  "output_file": "outputs\\matched_tickets_step2.parquet",
+  "output_size_mb": 53.67
+}

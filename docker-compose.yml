@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  # 1. Reverse Proxy & Frontend Application
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: dtc_journey_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: always
+    networks:
+      - dtc_network
+
+  # 2. FastAPI Backend & ML Model Engine (Multi-worker for high concurrency)
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: dtc_journey_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - RATE_LIMIT_REQUESTS_PER_MINUTE=200
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - redis
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    networks:
+      - dtc_network
+
+  # 3. High-Throughput Redis Cache (for fast route lookup and distributed rate limiting)
+  redis:
+    image: redis:7.2-alpine
+    container_name: dtc_journey_redis
+    ports:
+      - "6379:6379"
+    restart: always
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    networks:
+      - dtc_network
+
+volumes:
+  redis_data:
+
+networks:
+  dtc_network:
+    driver: bridge

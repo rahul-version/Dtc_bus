@@ -1,0 +1,80 @@
+{
+  "total_segments_estimated": 958501,
+  "pink_pass_factor": 1.25,
+  "capacities": {
+    "ac": 60,
+    "non_ac": 65
+  },
+  "crowding_distribution": [
+    {
+      "crowding_level": "SEATS_AVAILABLE",
+      "len": 463110,
+      "pct": 48.32
+    },
+    {
+      "crowding_level": "CROWDED",
+      "len": 258206,
+      "pct": 26.94
+    },
+    {
+      "crowding_level": "STANDING_ROOM",
+      "len": 237185,
+      "pct": 24.75
+    }
+  ],
+  "confidence_distribution": [
+    {
+      "confidence": "LOW",
+      "len": 429176,
+      "pct": 44.78
+    },
+    {
+      "confidence": "MEDIUM",
+      "len": 343360,
+      "pct": 35.82
+    },
+    {
+      "confidence": "HIGH",
+      "len": 185965,
+      "pct": 19.4
+    }
+  ],
+  "sensitivity_analysis": [
+    {
+      "uplift_factor": 1.1,
+      "mean_load_factor": 0.712,
+      "pct_seats_available": 55.2,
+      "pct_standing_room": 24.2,
+      "pct_crowded": 20.6
+    },
+    {
+      "uplift_factor": 1.2,
+      "mean_load_factor": 0.777,
+      "pct_seats_available": 50.3,
+      "pct_standing_room": 24.8,
+      "pct_crowded": 24.9
+    },
+    {
+      "uplift_factor": 1.25,
+      "mean_load_factor": 0.81,
+      "pct_seats_available": 48.3,
+      "pct_standing_room": 24.7,
+      "pct_crowded": 26.9
+    },
+    {
+      "uplift_factor": 1.35,
+      "mean_load_factor": 0.874,
+      "pct_seats_available": 44.4,
+      "pct_standing_room": 25.0,
+      "pct_crowded": 30.7
+    },
+    {
+      "uplift_factor": 1.5,
+      "mean_load_factor": 0.972,
+      "pct_seats_available": 39.8,
+      "pct_standing_room": 24.0,
+      "pct_crowded": 36.2
+    }
+  ],
+  "plot_saved": "outputs/plots\\step4_load_sensitivity_profile.png"
+}

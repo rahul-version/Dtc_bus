@@ -1,0 +1,64 @@
+{
+  "tidy_parquet_rows": 958501,
+  "tidy_parquet_size_mb": 7.95,
+  "tidy_csv_size_mb": 78.46,
+  "folium_map_file": "outputs\\folium_delhi_crowding_map.html",
+  "operator_bottlenecks_count": 20,
+  "top_bottlenecks": [
+    {
+      "rank": 1,
+      "route": "D-7701AUP",
+      "direction": "UP",
+      "max_load_factor": 10.26,
+      "peak_passengers_per_bus": 666.9,
+      "excess_passengers_per_bus": 606.9,
+      "crowded_segments_count": 86,
+      "recommended_extra_buses_per_hr": 41,
+      "intervention_priority": "CRITICAL"
+    },
+    {
+      "rank": 2,
+      "route": "469UP",
+      "direction": "UP",
+      "max_load_factor": 7.912,
+      "peak_passengers_per_bus": 514.2,
+      "excess_passengers_per_bus": 454.2,
+      "crowded_segments_count": 1042,
+      "recommended_extra_buses_per_hr": 31,
+      "intervention_priority": "CRITICAL"
+    },
+    {
+      "rank": 3,
+      "route": "525UP",
+      "direction": "UP",
+      "max_load_factor": 6.896,
+      "peak_passengers_per_bus": 448.2,
+      "excess_passengers_per_bus": 388.2,
+      "crowded_segments_count": 486,
+      "recommended_extra_buses_per_hr": 26,
+      "intervention_priority": "CRITICAL"
+    },
+    {
+      "rank": 4,
+      "route": "502DOWN",
+      "direction": "DOWN",
+      "max_load_factor": 6.706,
+      "peak_passengers_per_bus": 435.9,
+      "excess_passengers_per_bus": 375.9,
+      "crowded_segments_count": 896,
+      "recommended_extra_buses_per_hr": 26,
+      "intervention_priority": "CRITICAL"
+    },
+    {
+      "rank": 5,
+      "route": "623UP",
+      "direction": "UP",
+      "max_load_factor": 6.283,
+      "peak_passengers_per_bus": 408.4,
+      "excess_passengers_per_bus": 348.4,
+      "crowded_segments_count": 2229,
+      "recommended_extra_buses_per_hr": 24,
+      "intervention_priority": "CRITICAL"
+    }
+  ]
+}
